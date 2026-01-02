@@ -16,10 +16,21 @@ void clearFile(string filename) {
 
 int main() {
   string material[] = {"glass","concrete","wood_stave","rubber","copper","cast_iron","galvanized_iron","wrought_iron","stainless_steel","commercial_steel"};
-  for(int i = 0; i<size(material);i++){
+  string archivename;
+    for(int i = 0; i<size(material);i++){
     DataPrep(material[i]);
     PhysicsEngine();
     ComponentAnalyzer();
     CostCalculator();
-  }
+    archivename = material[i] + "_financial_report.txt";
+    if (fs::exists("financial_report.txt")) {
+            fs::copy_file("financial_report.txt", archivename, fs::copy_options::overwrite_existing);} 
+    else {
+            cout<< "Error: financial_report.txt was not found for " << material[i] << endl;}
+        clearFile("clean_data.txt");
+        clearFile("physic_results.txt");
+        clearFile("total_loss.txt");
+        clearFile("financial_report.txt");
+    }
+Comparator();
 }
