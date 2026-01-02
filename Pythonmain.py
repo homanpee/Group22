@@ -1,6 +1,6 @@
 import subprocess
 import os
-import matplotlib.pyplot as plt test
+import matplotlib.pyplot as plt
 
 def get_valid_number(prompt_text, must_be_integer):
     while True:
