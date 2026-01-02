@@ -15,7 +15,7 @@ int main(){
   const double g=9.81;
 
   // Read clean_data.txt
-  ifstream cleanFile("clean_data.txt);
+  ifstream cleanFile("clean_data.txt");
   cleanFile >> density;
   cleanFile >> viscosity;
   cleanFile >> diameter;
@@ -23,7 +23,7 @@ int main(){
   cleanFile >> length;
   cleanFile.close();
   // Read user_input.txt
-  ifstream userFile("user_input.txt);
+  ifstream userFile("user_input.txt");
   userFile >> velocity;
   userFile.close();
 
