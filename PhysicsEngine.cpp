@@ -65,7 +65,7 @@ int main(){
     frictionFactor * (length / diameter) * (pow(velocity,2)) / (2 * g)
 
   // Write output file
-  ofstream outputFile("physics_results.txt);
+  ofstream outputFile("physics_results.txt");
   outputFile << "Fluid Velocity (m/s): " << velocity << endl;
   outputFile << "Reynolds Number: " << reynolds << endl;
   outputFile << "Friction Factor: " << frictionFactor << endl;
