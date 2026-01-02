@@ -1,2 +1,4 @@
 #pragma once
-void DataPrep();
+#include <string>
+using namespace std;
+void DataPrep(string Material);
