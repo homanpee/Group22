@@ -5,10 +5,5 @@
 #include "header/CostCalculator.hpp"
 #include "header/Comparator.hpp"
 
-int main() {
-    runDataPrep();        
-    runPhysicsEngine();   
-    runComponentCalc();   
-    runEconomicsCalc();   
-    runComparator();      
+int main() {      
 }
