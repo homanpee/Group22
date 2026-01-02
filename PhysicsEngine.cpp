@@ -8,25 +8,29 @@ using namespace std;
 void PhysicsEngine()//don't change this line
 {
 //Paste or type code here
-int main(){
   double density, viscosity, diameter, roughness, length;
-  double velocity;
-  double reynolds, frictionFactor, headLoss;
+  double FlowRate;
+  double reynolds, frictionFactor, headLoss, velocity, radius;
   const double g=9.81;
 
   // Read clean_data.txt
   ifstream cleanFile("clean_data.txt");
-  cleanFile >> density;
   cleanFile >> viscosity;
-  cleanFile >> diameter;
+  cleanFile >> density;
   cleanFile >> roughness;
-  cleanFile >> length;
   cleanFile.close();
+
   // Read user_input.txt
   ifstream userFile("user_input.txt");
-  userFile >> velocity;
+  userFile >> FlowRate;
+  userFile >> length;
+  userFile >> diameter;
   userFile.close();
 
+  // Calculate velocity of fluid
+  radius = diamter/2
+  veloctiy = FlowRate / (M_PI * (pow(radius,2)))
+    
   // Calculate Reynolds Number
   reynolds = (density * velocity * diameter)/viscosity;
 
@@ -66,14 +70,12 @@ int main(){
 
   // Write output file
   ofstream outputFile("physics_results.txt");
-  outputFile << "Fluid Velocity (m/s): " << velocity << endl;
-  outputFile << "Reynolds Number: " << reynolds << endl;
-  outputFile << "Friction Factor: " << frictionFactor << endl;
-  outputFile << "Major Hed Loss (m): " << headLoss << endl;
+  outputFile << velocity << endl;
+  outputFile << reynolds << endl;
+  outputFile << frictionFactor << endl;
+  outputFile << headLoss << endl;
   outputFile.close();
   // Program end
-  cout << "Calculation completed successfully." << endl;
   return 0;
-}
   //Paste or type code here
 }
