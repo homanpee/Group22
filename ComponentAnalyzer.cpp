@@ -1,6 +1,5 @@
-#include "header/ComponentAnalyzer.hpp" //don't change this line
 #include <fstream>//don't change this line
-//include any other necessary headers like iostream,cmath ect.
+#include "header/ComponentAnalyzer.hpp"//include any other necessary headers like iostream,cmath ect above this line
 void ComponentAnalyzer()//don't change this line
 {
 //Paste or type code here
