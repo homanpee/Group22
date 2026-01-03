@@ -93,7 +93,7 @@ getline(ss, name, ',');
         }
     }
     readmaterial.close();
-
+//finishreadmaterialsdatabase
 
 
 ofstream outputfile("clean_data.txt");

@@ -1,6 +1,5 @@
 Material,Roughness,Cost,MaxPressure
 glass,0,25,1000000
-plastic,0,25,1000000
 concrete,0.003,15,500000
 wood_stave,0.0005,20,600000
 rubber,0.00001,18,700000
