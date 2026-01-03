@@ -1,0 +1,12 @@
+Material,Roughness,Cost,MaxPressure
+glass,0,25,1000000
+plastic,0,25,1000000
+concrete,0.003,15,500000
+wood_stave,0.0005,20,600000
+rubber,0.00001,18,700000
+copper,0.0000015,60,2000000
+cast_iron,0.00026,40,1500000
+galvanized_iron,0.00015,35,1200000
+wrought_iron,0.000046,38,1300000
+stainless_steel,0.000002,70,2500000
+commercial_steel,0.000045,45,1800000
