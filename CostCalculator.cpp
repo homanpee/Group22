@@ -61,7 +61,6 @@ void CostCalculator()//don't change this line
 
     // Convert to kW
     double pumpPower_kW = pumpPower / 1000.0;
-  
     // Annual Energy Cost
     double annualEnergyCost = pumpPower_kW * 24 * 365 * electricityPrice;
   
@@ -71,10 +70,10 @@ void CostCalculator()//don't change this line
     // Annual Energy Cost
     double annualEnergyCost = pumpPower_kW * 24 * 365 * electricityPrice;
 
-    // 10-Year Lifecycle Cost
+    // 10-Year total lifecycle cost
     double tenYearCost = purchaseCost + (annualEnergyCost * 10);
 
-    // Write financial_report.txt
+    
     ofstream reportFile("financial_report.txt");
     if (!reportFile)
     {
