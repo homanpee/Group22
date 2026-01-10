@@ -33,4 +33,8 @@ int main() {
         clearFile("financial_report.txt");
     }
 Comparator();
+for(int i = 0; i < size(material); i++){
+        string fileToDelete = material[i] + "_financial_report.txt";
+        if (fs::exists(fileToDelete)) {
+            fs::remove(fileToDelete);}}
 }
