@@ -147,31 +147,45 @@ if data:
             with open(results_file, "r") as f:
                 lines = [line.strip() for line in f.readlines() if line.strip()]
             
-            if len(lines) >= 6:
-                prices = [float(lines[0]), float(lines[1]), float(lines[2])]
+   
+            if len(lines) >= 12:
+          
+                buying_prices = [float(lines[0]), float(lines[1]), float(lines[2])]
                 names = [lines[3], lines[4], lines[5]]
+                lifecycle_costs = [float(lines[6]), float(lines[7]), float(lines[8])]
+                energy_costs = [float(lines[9]), float(lines[10]), float(lines[11])]
                 
-                plt.figure(figsize=(10, 6))
-                
-                bars = plt.bar(names, prices, color=['#4CAF50', '#2196F3', '#FF9800'])
-                
-                fluid_name = data["fluid"] 
-                plt.title(f"Cost Comparison for {fluid_name} System", fontsize=14, fontweight='bold')
-                
-                plt.ylabel("Total Cost (RM)", fontsize=12)
-                plt.grid(axis='y', linestyle='--', alpha=0.7)
-                
-                for bar in bars:
-                    height = bar.get_height()
-                    plt.text(bar.get_x() + bar.get_width()/2.0, height, 
-                             f'RM{height:.2f}', 
-                             ha='center', va='bottom', fontsize=11, fontweight='bold')
-                
+                fluid_name = data["fluid"]
+                bar_colors = ['#4CAF50', '#2196F3', '#FF9800']
+
+                fig, axes = plt.subplots(1, 3, figsize=(18, 6))
+           
+                fig.suptitle(f"Economic Analysis for {fluid_name} System", fontsize=16, fontweight='bold')
+
+                def plot_on_axis(ax, data_values, title, y_label):
+                    bars = ax.bar(names, data_values, color=bar_colors)
+                    ax.set_title(title, fontsize=11, fontweight='bold')
+                    ax.set_ylabel(y_label, fontsize=10)
+                    ax.grid(axis='y', linestyle='--', alpha=0.7)
+       
+                    for bar in bars:
+                        height = bar.get_height()
+                        ax.text(bar.get_x() + bar.get_width()/2.0, height, 
+                                f'RM{height:,.2f}', 
+                                ha='center', va='bottom', fontsize=9, fontweight='bold')
+
+                plot_on_axis(axes[0], buying_prices, "Initial Buying Price", "Cost (RM)")
+    
+                plot_on_axis(axes[1], lifecycle_costs, "10-Year Life-Cycle Cost", "Total Cost (RM)")
+
+                plot_on_axis(axes[2], energy_costs, "Annual Energy Cost", "Energy Cost (RM)")
+
+                plt.tight_layout(rect=[0, 0.03, 1, 0.95]) 
+
                 plt.show()
                 
             else:
-                messagebox.showerror("Data Error", "Result file is missing data lines!")
-                
+                messagebox.showerror("Data Error", f"Result file is missing data! Expected 12 lines, found {len(lines)}.")
         except Exception as e:
             messagebox.showerror("Plot Error", f"Could not draw chart: {e}")
     else:
@@ -188,4 +202,4 @@ try:
     os.remove("clean_data.txt")
     os.remove("total_loss.txt")
 except:
-    pass 
+    pass
