@@ -96,5 +96,6 @@ void CostCalculator()//don't change this line
     reportFile.close();
 
     cout << "CostCalculator: financial_report.txt is generated." << endl;
+    return;
 }
 
