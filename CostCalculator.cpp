@@ -74,9 +74,6 @@ void CostCalculator()//don't change this line
     // Pump Power (W)
     pumpPower = (fluidDensity * gravity * flowRate * totalHeadLoss) / pumpEfficiency;
 
-    // Annual Energy Cost
-    annualEnergyCost = pumpPower_kW * 24 * 365 * electricityPrice;
-
     // 10-Year total lifecycle cost
     tenYearCost = purchaseCost + (annualEnergyCost * 10);
 
