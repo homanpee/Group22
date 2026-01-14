@@ -17,7 +17,6 @@ void CostCalculator()//don't change this line
     double pumpPower_kW;
     double annualEnergyCost;
     double pumpPower;
-    double annualEnergyCost;
     double tenYearCost;
 
     //Variables from user input file
@@ -36,7 +35,7 @@ void CostCalculator()//don't change this line
     if (!userinputFile)
     {
         cout << "Error: Cannot open user_input.txt" << endl;
-        return;
+     
     }
 
     userinputFile >> flowRate;
@@ -48,7 +47,7 @@ void CostCalculator()//don't change this line
     if (!totalLossFile)
     {
         cout << "Error: Cannot open total_loss.txt" << endl;
-        return;
+       
     }
 
     totalLossFile >> minorHeadLoss;
@@ -61,7 +60,7 @@ void CostCalculator()//don't change this line
     if (!cleanDataFile)
     {
         cout << "Error: Cannot open clean_data.txt" << endl;
-        return;
+       
     }
 
     cleanDataFile >> viscosity;
@@ -76,13 +75,13 @@ void CostCalculator()//don't change this line
     // Purchase Cost
     purchaseCost = cost * pipeLength;
 
+   // Pump Power (W)
+    pumpPower = (fluidDensity * gravity * flowRate * totalHeadLoss) / pumpEfficiency;
+    
     // Convert to kW
     pumpPower_kW = pumpPower / 1000.0;
     // Annual Energy Cost
     annualEnergyCost = pumpPower_kW * 24 * 365 * electricityPrice;
-  
-    // Pump Power (W)
-    pumpPower = (fluidDensity * gravity * flowRate * totalHeadLoss) / pumpEfficiency;
 
     // 10-Year total lifecycle cost
     tenYearCost = purchaseCost + (annualEnergyCost * 10);
@@ -92,7 +91,7 @@ void CostCalculator()//don't change this line
     if (!reportFile)
     {
         cout << "Error: Cannot create financial_report.txt" << endl;
-        return;
+        
     }
 
     reportFile << purchaseCost << endl;
@@ -101,8 +100,6 @@ void CostCalculator()//don't change this line
     reportFile << pumpPower << endl;
 
     reportFile.close();
-
-    cout << "CostCalculator: financial_report.txt is generated." << endl;
-    return;
+   
 }
 
