@@ -84,5 +84,4 @@ void Comparator()//don't change this line
 
     out.close();
 
-    cout << "Comparator: final_recommendation.txt generated successfully." << endl;
 }
