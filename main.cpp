@@ -8,7 +8,7 @@
 #include "header/CostCalculator.hpp"
 #include "header/Comparator.hpp"
 using namespace std;
-namespace fs = filesystem;
+namespace fs = std::filesystem;
 
 void clearFile(string filename) {
     ofstream ofs(filename, ios::trunc);
@@ -17,7 +17,7 @@ void clearFile(string filename) {
 int main() {
   string material[] = {"glass","concrete","wood_stave","rubber","copper","cast_iron","galvanized_iron","wrought_iron","stainless_steel","commercial_steel"};
   string archivename;
-    for(int i = 0; i<size(material);i++){
+    for(int i = 0; i<(sizeof(material)/sizeof(material[0]));i++){
     DataPrep(material[i]);
     PhysicsEngine();
     bool safety = ComponentAnalyzer();
@@ -41,7 +41,7 @@ int main() {
         clearFile("financial_report.txt");
     }
 Comparator();
-for(int i = 0; i < size(material); i++){
+for(int i = 0; i < i<(sizeof(material)/sizeof(material[0])); i++){
         string fileToDelete = material[i] + "_financial_report.txt";
         if (fs::exists(fileToDelete)) {
             fs::remove(fileToDelete);}}
